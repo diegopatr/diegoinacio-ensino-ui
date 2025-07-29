@@ -189,6 +189,8 @@
   --navbar-icon-square-radius: 0.5em;
   --navbar-icon-square-icon-size: 28px;
   --navbar-icon-square-icon-color: --white;
+  --site-brand-title-font-color: var(--slate-50);
+  --site-brand-subtitle-font-color: var(--slate-300);
 
   /* nav */
   --nav-background: var(--panel-background);
