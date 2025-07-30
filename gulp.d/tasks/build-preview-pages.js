@@ -50,12 +50,14 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
               uiModel.page = { layout: '404', title: 'Page Not Found' }
             } else {
               const doc = Asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
-              uiModel.page.attributes = Object.entries(doc.getAttributes())
+              const pageAttrsFromUiModel = uiModel.page.attributes || {}
+              const pageAttrsFromDoc = Object.entries(doc.getAttributes())
                 .filter(([name, val]) => name.startsWith('page-'))
                 .reduce((accum, [name, val]) => {
                   accum[name.slice(5)] = val
                   return accum
                 }, {})
+              uiModel.page.attributes = { ...pageAttrsFromUiModel, ...pageAttrsFromDoc }
               uiModel.page.layout = doc.getAttribute('page-layout', 'default')
               uiModel.page.title = doc.getDocumentTitle()
               uiModel.page.contents = Buffer.from(doc.convert())

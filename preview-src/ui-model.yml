@@ -20,6 +20,8 @@ site:
   - &component
     name: xyz
     title: &component_title Project XYZ
+    attributes:
+      page-toctitle: 'Teste'
     url: /xyz/6.0/index.html
     versions:
     - &latest_version_xyz
@@ -125,3 +127,10 @@ page:
       - content: Some Code
         url: '/xyz/5.2/index.html#some-code'
         urlType: internal
+  attributes:
+    toctitle: 'Conteúdo'
+    description: 'This is a test description for the page.'
+    keywords: 'test, example, demo'
+    author: 'Diego Inácio'
+    lang: 'en-US'
+    robots: 'index, follow'
