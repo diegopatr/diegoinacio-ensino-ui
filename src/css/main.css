@@ -37,3 +37,8 @@ body.-toc aside.toc.sidebar {
     flex-basis: var(--toc-width--widescreen);
   }
 }
+
+#site-logo {
+  height: 45px;
+  max-width: 250px;
+}
